@@ -1,0 +1,35 @@
+{
+  "name": "currency-converter",
+  "version": "1.0.0",
+  "description": "HTTP service for currency conversion",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "npm run build && npm run serve",
+    "build": "npm run build:ts && npm run lint",
+    "build:ts": "tsc",
+    "lint": "tslint -c tslint.json -p tsconfig.json",
+    "serve": "node dist/index.js",
+    "watch": "concurrently -k -p \"[{name}]\" \"npm:watch:*\"",
+    "watch:node": "nodemon -w dist dist/index.js",
+    "watch:ts": "tsc -w",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alessandro Cifani",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "morgan": "^1.9.1",
+    "winston": "^3.1.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.16.0",
+    "@types/morgan": "^1.7.35",
+    "@types/node": "^10.11.6",
+    "@types/winston": "^2.4.4",
+    "concurrently": "^4.0.1",
+    "nodemon": "^1.18.4",
+    "prettier": "^1.14.3",
+    "tslint-config-prettier": "^1.15.0",
+    "typescript": "^3.1.2"
+  }
+}

@@ -1,11 +1,7 @@
-import express from 'express'
-import morgan from 'morgan'
-import { default as logger, stream } from './logger'
+import app from './app'
+import config from './config'
+import logger from './logger'
 
-const app = express()
-app.use(morgan('combined', { stream }))
-
-const port = 9393
-app.listen(port, () => {
-  logger.info(`Listening on port: ${port}`)
+app.listen(config.port, () => {
+  logger.info(`Listening on port: ${config.port}`)
 })

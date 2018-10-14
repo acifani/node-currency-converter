@@ -39,6 +39,8 @@ export function update(data?: string): void {
   initRatesFromXML(data)
 }
 
+export const clearRates = () => _rates = []
+
 function initRatesFromXML(data: string): void {
   const callback = (err: any, res?: Envelope) => {
     if (err || !res) {

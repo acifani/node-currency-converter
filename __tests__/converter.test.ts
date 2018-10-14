@@ -57,8 +57,13 @@ describe('converter', () => {
       expect(output.rate).toBe(1)
     })
 
-    it("should return today's rate when date is null", () => {
+    it("should return today's rate when date is undefined", () => {
       const output = getRateAtDate(GBP)
+      expect(output.rate).toBe(todayRate)
+    })
+
+    it("should return today's rate when date is null", () => {
+      const output = getRateAtDate(GBP, null)
       expect(output.rate).toBe(todayRate)
     })
 

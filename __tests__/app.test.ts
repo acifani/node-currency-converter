@@ -62,6 +62,12 @@ describe('app', () => {
       expect(res.status).toBe(400)
     })
 
+    it('should return status code 400 on non existing currency', async () => {
+      const query = { amount, src_currency: 'XXX', dest_currency, reference_date }
+      const res = await request(app).get('/convert').query(query)
+      expect(res.status).toBe(400)
+    })
+
     it('should return 200 on valid query without reference_date', async () => {
       const query = { amount, src_currency, dest_currency }
       const res = await request(app).get('/convert').query(query)

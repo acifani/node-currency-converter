@@ -42,8 +42,8 @@ export function getRateAtDate(
   }
 
   const rates = getRates()
-  const dailyRates = rates.filter(r => r.date === formattedDate)
 
+  const dailyRates = rates.filter(r => r.date === formattedDate)
   if (dailyRates.length === 0) {
     throw new Error('Date not available. Rates available for working days only')
   }

@@ -1,4 +1,4 @@
-# node-currency-converter
+# node-currency-converter [![Build Status](https://travis-ci.com/acifani/node-currency-converter.svg?token=zXxjmUAUHdhMP41u9scc&branch=master)](https://travis-ci.com/acifani/node-currency-converter)
 
 Simple node that exposes a single endpoint to convert amounts between currencies.
 

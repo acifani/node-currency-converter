@@ -1,7 +1,26 @@
 {
-  "name": "currency-converter",
+  "name": "node-currency-converter",
   "version": "1.0.0",
-  "description": "HTTP service for currency conversion",
+  "description": "Node server for currency conversion",
+  "author": {
+    "name": "Alessandro Cifani",
+    "email": "alessandro.cifani@gmail.com",
+    "url": "https://github.com/acifani"
+  },
+  "repository": "github:acifani/node-currency-converter",
+  "homepage": "https://github.com/acifani/node-currency-converter#readme",
+  "bugs": {
+    "url": "https://github.com/acifani/node-currency-converter/issues",
+    "email": "alessandro.cifani@gmail.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "typescript",
+    "docker",
+    "currency",
+    "converter"
+  ],
   "main": "dist/index.js",
   "scripts": {
     "start": "npm run build && npm run serve",
@@ -15,8 +34,6 @@
     "test": "jest",
     "coverage": "jest --coverage"
   },
-  "author": "Alessandro Cifani",
-  "license": "MIT",
   "dependencies": {
     "axios": "^0.18.0",
     "date-fns": "^1.29.0",

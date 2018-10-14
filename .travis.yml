@@ -1,9 +1,15 @@
+sudo: required
 language: node_js
+
 node_js:
   - 'stable'
-cache:
-  directories:
-    - '$HOME/.npm'
+
+services:
+  - docker
+
+before_install:
+  - docker build -t node-currency-converter:latest .
+  - docker run node-currency-converter:latest /bin/sh -c "cd /usr/src/app"
+
 script:
-  - npm run build
   - npm run coverage

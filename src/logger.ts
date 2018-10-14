@@ -1,8 +1,9 @@
 import * as winston from 'winston'
+import config from './config'
 
 const logger = winston.createLogger({
   format: winston.format.simple(),
-  level: process.env.NODE_ENV === 'production' || 'test' ? 'error' : 'debug',
+  level: ['production', 'test'].includes(config.mode) ? 'error' : 'debug',
   transports: [new winston.transports.Console()],
 })
 

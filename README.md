@@ -2,10 +2,12 @@
 
 Simple node that exposes a single endpoint to convert amounts between currencies.
 
-Data is fetched upon server start from the 
+Data is fetched upon server start from the
 [ECB Reference Rates](https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist-90d.xml).
 
 ## Install
+
+**Note**: for Docker instructions, see [Docker](#docker)
 
 ```sh
 $ git clone git@github.com:acifani/node-currency-converter.git
@@ -20,6 +22,17 @@ You can configure two environment variables
 
 - `NODE_ENV`: One of `production`, `test`, `development`
 - `PORT`: Local port the node server will listen to
+
+## Docker
+
+If you have Docker installed you can also use `docker-compose` to run the server
+
+```sh
+$ git clone git@github.com:acifani/node-currency-converter.git
+$ cd node-currency-converter
+$ docker-compose up
+
+```
 
 ## Usage
 

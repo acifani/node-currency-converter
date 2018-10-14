@@ -20,8 +20,8 @@ $ npm run start
 
 You can configure two environment variables
 
-- `NODE_ENV`: One of `production`, `test`, `development`
-- `PORT`: Local port the node server will listen to
+- `NODE_ENV`: One of `production`, `test`, `development`, defaults to `development`
+- `PORT`: Local port the node server will listen to, defaults to `9393`
 
 ## Docker
 
@@ -45,7 +45,11 @@ Issue a `GET` request to the `/convert` endpoint. It accepts the following query
 | `dest_currency`  | yes      | string | ISO currency code for the destination currency (e.g. `EUR`, `USD`, `GBP`)            |
 | `reference_date` | no       | string | Reference date for the exchange rate, in `YYYY-MM-DD` format (e.g. `2018-10-12`)     |
 
-**Note**: Only rates for the last 90 days are available. Rates are only available for working days.
+**Notes**
+
+- Rates are available for the last 90 days
+- Rates are available for working days only
+- If `reference_date` is not specified, it defaults to today's date
 
 ### Example
 

@@ -16,7 +16,7 @@
     "coverage": "jest --coverage"
   },
   "author": "Alessandro Cifani",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "axios": "^0.18.0",
     "date-fns": "^1.29.0",

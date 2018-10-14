@@ -12,4 +12,4 @@ before_install:
   - docker run node-currency-converter:latest /bin/sh -c "cd /usr/src/app"
 
 script:
-  - npm run coverage
+  - npm run coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js

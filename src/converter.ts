@@ -1,36 +1,56 @@
-import { differenceInDays, isFuture } from 'date-fns'
+import { differenceInDays, format, isFuture } from 'date-fns'
+import { Currency, DailyRate, getRates } from './rates'
 
-type Currency = string
-
-export function getRateAtDate(currency: Currency, date?: Date): number {
-  const today = new Date()
-
-  if (date && isFuture(date)) {
-    throw new Error('Date is in the future')
-  }
-
-  if (date && differenceInDays(today, date) > 90) {
-    throw new Error('Date is older than 90 days')
-  }
-
-  return 0
+type JSONResponse = {
+  amount: number
+  currency: Currency
 }
 
 export function convert(
   amount: number,
   source: Currency,
   dest: Currency,
-  date?: Date,
-): number {
-  if (amount === 0) {
-    return 0
-  }
-
-  if (source === dest) {
-    return amount
-  }
-
+  date?: Date | string,
+): JSONResponse {
   const sourceRate = getRateAtDate(source, date)
   const destRate = getRateAtDate(dest, date)
-  return amount * (destRate / sourceRate)
+  const convertedAmount = amount * (destRate.rate / sourceRate.rate)
+  return {
+    amount: convertedAmount,
+    currency: destRate.currency,
+  }
+}
+
+export function getRateAtDate(
+  currency: Currency,
+  date: Date | string = new Date(),
+): DailyRate {
+  const today = new Date()
+  const formattedDate = format(date, 'YYYY-MM-DD')
+
+  if (isFuture(date)) {
+    throw new Error('Date is in the future')
+  }
+
+  if (differenceInDays(today, date) > 90) {
+    throw new Error('Date is older than 90 days')
+  }
+
+  if (currency === 'EUR') {
+    return { currency, date: formattedDate, rate: 1 }
+  }
+
+  const rates = getRates()
+  const dailyRates = rates.filter(r => r.date === formattedDate)
+
+  if (dailyRates.length === 0) {
+    throw new Error('Date not available. Rates available for working days only')
+  }
+
+  const currencyRate = dailyRates.find(r => r.currency === currency)
+  if (currencyRate == null) {
+    throw new Error('Currency not available')
+  }
+
+  return currencyRate
 }

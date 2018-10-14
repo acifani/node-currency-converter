@@ -5,6 +5,9 @@ Simple node that exposes a single endpoint to convert amounts between currencies
 Data is fetched upon server start from the
 [ECB Reference Rates](https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist-90d.xml).
 
+You can [try it online](https://node-currency-converter.herokuapp.com/convert?amount=120&src_currency=EUR&dest_currency=USD&reference_date=2018-10-12),
+but keep in mind that there could be older rates only.
+
 ## Install
 
 **Note**: for Docker instructions, see [Docker](#docker)

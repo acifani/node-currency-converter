@@ -10,7 +10,7 @@ export function convert(
   amount: number,
   source: Currency,
   dest: Currency,
-  date?: Date | string,
+  date?: Date | string | null,
 ): JSONResponse {
   const sourceRate = getRateAtDate(source, date)
   const destRate = getRateAtDate(dest, date)
@@ -23,16 +23,17 @@ export function convert(
 
 export function getRateAtDate(
   currency: Currency,
-  date: Date | string = new Date(),
+  date: Date | string | null = new Date(),
 ): DailyRate {
   const today = new Date()
-  const formattedDate = format(date, 'YYYY-MM-DD')
+  const referenceDate = date || today
+  const formattedDate = format(referenceDate, 'YYYY-MM-DD')
 
-  if (isFuture(date)) {
+  if (isFuture(referenceDate)) {
     throw new Error('Date is in the future')
   }
 
-  if (differenceInDays(today, date) > 90) {
+  if (differenceInDays(today, referenceDate) > 90) {
     throw new Error('Date is older than 90 days')
   }
 

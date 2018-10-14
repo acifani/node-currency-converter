@@ -2,7 +2,7 @@ import * as winston from 'winston'
 
 const logger = winston.createLogger({
   format: winston.format.simple(),
-  level: process.env.NODE_ENV === 'production' ? 'error' : 'debug',
+  level: process.env.NODE_ENV === 'production' || 'test' ? 'error' : 'debug',
   transports: [new winston.transports.Console()],
 })
 

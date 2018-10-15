@@ -76,7 +76,7 @@ describe('app', () => {
       expect(res.body.currency).toBeTruthy()
     })
 
-    it('should return 200 on valid query without reference_date', async () => {
+    it('should return 200 on valid query with reference_date', async () => {
       const query = { amount, src_currency, dest_currency, reference_date }
       const res = await request(app).get('/convert').query(query)
       expect(res.status).toBe(200)

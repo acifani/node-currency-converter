@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.com/acifani/node-currency-converter.svg?token=zXxjmUAUHdhMP41u9scc&branch=master)](https://travis-ci.com/acifani/node-currency-converter)
 [![Coverage Status](https://coveralls.io/repos/github/acifani/node-currency-converter/badge.svg?branch=master)](https://coveralls.io/github/acifani/node-currency-converter?branch=master)
-[![Maintainability](https://api.codeclimate.com/v1/badges/df4e4744bdcbd36078ae/maintainability)](https://codeclimate.com/github/acifani/node-currency-converter/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/df4e4744bdcbd36078ae/maintainability)](https://codeclimate.com/github/acifani/node-currency-converter/maintainability) [![Greenkeeper badge](https://badges.greenkeeper.io/acifani/node-currency-converter.svg)](https://greenkeeper.io/)
 
 Simple node that exposes a single endpoint to convert amounts between currencies.
 
